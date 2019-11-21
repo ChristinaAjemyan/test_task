@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Email address</label>
+    <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+
+    <div *ngIf="form.get('email').touched && form.get('email').invalid">
+      <small *ngIf="form.get('email').errors.email"> It is not email adress</small>
+      <small *ngIf="form.get('email').errors.required">It is a required field </small>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="Password" formControlName="password">
+    <div *ngIf="form.get('password').touched && form.get('password').invalid">
+      <small *ngIf="form.get('password').errors.required"> It is a required field</small>
+      <small *ngIf="form.get('password').errors.minlength">
+        It must be {{form.get('password').errors.minlength.requiredLength}} but you
+        do {{form.get('password').errors.minlength.actualLength}}
+      </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+</form>

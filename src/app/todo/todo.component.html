@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">CompanyName</th>
+    <th scope="col">Email</th>
+    <th scope="col">ContactPerson</th>
+    <th scope="col">PhoneNumber</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of todo">
+    <th scope="row">{{t.companyName}}</th>
+    <td>{{t.email}}</td>
+    <td>{{t.contactPerson}}</td>
+    <td>{{t.phoneNumber}}</td>
+  </tr>
+  </tbody>
+</table>
